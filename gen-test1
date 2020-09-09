@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+"""
+Create one note without audio
+"""
+
+import genanki
+
+from models import VOCAB_REVERSE
+
+
+def main():
+    """
+    Generate Anki deck
+    """
+
+    deck = genanki.Deck(1833343228212, "TEST1 Swahili")
+
+    output = "test1.apkg"
+    swahili = genanki.Package(deck)
+    note = genanki.Note(
+                model=VOCAB_REVERSE,
+                fields=['moja (number)', 'one'],
+                )
+    deck.add_note(note)
+    swahili.write_to_file(output)
+
+
+if __name__ == "__main__":
+    main()
